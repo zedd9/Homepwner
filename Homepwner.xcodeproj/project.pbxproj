@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		146376EE25EA95FD0047739E /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146376ED25EA95FD0047739E /* ItemCell.swift */; };
 		14AD2A3125E7DEEA0055EC69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2A3025E7DEEA0055EC69 /* AppDelegate.swift */; };
 		14AD2A3325E7DEEA0055EC69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2A3225E7DEEA0055EC69 /* SceneDelegate.swift */; };
 		14AD2A3825E7DEEA0055EC69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AD2A3625E7DEEA0055EC69 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		146376ED25EA95FD0047739E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		14AD2A2D25E7DEEA0055EC69 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AD2A3025E7DEEA0055EC69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14AD2A3225E7DEEA0055EC69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				14AD2A3025E7DEEA0055EC69 /* AppDelegate.swift */,
 				14AD2A4725E7DF890055EC69 /* ItemsViewController.swift */,
+				146376ED25EA95FD0047739E /* ItemCell.swift */,
 				14AD2A4B25E7E0340055EC69 /* Item.swift */,
 				14AD2A4E25E7E2880055EC69 /* ItemStore.swift */,
 				14AD2A3225E7DEEA0055EC69 /* SceneDelegate.swift */,
@@ -145,6 +148,7 @@
 			files = (
 				14AD2A4C25E7E0340055EC69 /* Item.swift in Sources */,
 				14AD2A4825E7DF890055EC69 /* ItemsViewController.swift in Sources */,
+				146376EE25EA95FD0047739E /* ItemCell.swift in Sources */,
 				14AD2A3125E7DEEA0055EC69 /* AppDelegate.swift in Sources */,
 				14AD2A4F25E7E2880055EC69 /* ItemStore.swift in Sources */,
 				14AD2A3325E7DEEA0055EC69 /* SceneDelegate.swift in Sources */,
