@@ -11,18 +11,18 @@ class ItemsViewController: UITableViewController
 {
     var itemStore: ItemStore!
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-//
-//        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-//        tableView.contentInset = insets
-//        tableView.scrollIndicatorInsets = insets\
+
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
     }
-    
     
     @IBAction func addNewItem(sender: AnyObject)
     {
@@ -35,18 +35,7 @@ class ItemsViewController: UITableViewController
             tableView.insertRows(at: [indexPath], with: .automatic)
         }
     }
-    
-    @IBAction func toggleEditingMode(sender: UIButton)
-    {
-        if isEditing {
-            sender.setTitle("Edit", for: .normal)
-            setEditing(false, animated: true)
-        } else {
-            sender.setTitle("Done", for: .normal)
-            setEditing(true, animated: true)
-        }
-    }
-    
+       
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count + 1
     }
@@ -138,7 +127,6 @@ class ItemsViewController: UITableViewController
         return "Remove"
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowItem" {
             if let row = tableView.indexPathForSelectedRow?.row {
@@ -148,5 +136,11 @@ class ItemsViewController: UITableViewController
                 detailViewController.item = item
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
 }
