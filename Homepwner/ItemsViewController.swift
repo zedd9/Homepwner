@@ -10,6 +10,7 @@ import UIKit
 class ItemsViewController: UITableViewController
 {
     var itemStore: ItemStore!
+    var imageStore: ImageStore!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -49,6 +50,7 @@ class ItemsViewController: UITableViewController
             cell.nameLabel.text = "No more items!"
             cell.serialNumberLabel.text = ""
             cell.valueLabel.text = ""
+            cell.isUserInteractionEnabled = false
         } else {
             let item = itemStore.allItems[indexPath.row]
             cell.nameLabel.text = item.name
@@ -60,6 +62,8 @@ class ItemsViewController: UITableViewController
             } else {
                 cell.valueLabel.textColor = UIColor.green
             }
+            
+            cell.isUserInteractionEnabled = true
         }
 
         return cell
@@ -83,6 +87,9 @@ class ItemsViewController: UITableViewController
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (acction) in
                 self.itemStore.removeItem(item: item)
+                
+                self.imageStore.deleteImageForKey(key: item.itemKey)
+                
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             })
             ac.addAction(deleteAction)
@@ -121,19 +128,20 @@ class ItemsViewController: UITableViewController
         else {
             return true
         }
-    }
-
+    }    
+  
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Remove"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowItem" {
-            if let row = tableView.indexPathForSelectedRow?.row {
+            if let row = tableView.indexPathForSelectedRow?.row , row < itemStore.allItems.count{
                 
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewConroller
                 detailViewController.item = item
+                detailViewController.imageStore = imageStore
             }
         }
     }

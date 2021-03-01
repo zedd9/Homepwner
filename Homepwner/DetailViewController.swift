@@ -7,17 +7,20 @@
 
 import UIKit
 
-class DetailViewConroller : UIViewController, UITextFieldDelegate {
+class DetailViewConroller : UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     @IBOutlet var nameField: UITextField!
     @IBOutlet var serialNumberField: UITextField!
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
     
     var item: Item! {
         didSet {
             navigationItem.title = item.name
         }
     }
+    
+    var imageStore: ImageStore!
     
     let numberFormatter : NumberFormatter = {
         let formmater = NumberFormatter()
@@ -45,6 +48,11 @@ class DetailViewConroller : UIViewController, UITextFieldDelegate {
 //        dateLabel.text = "\(item.dateCreated)"
         valueField.text = numberFormatter.string(from: NSNumber(integerLiteral: item.valueInDollars) )
         dateLabel.text = dateFormatter.string(from: item.dateCreated as Date)
+        
+        let key = item.itemKey
+        
+        let imageToDisplay = imageStore.imageForKey(key: key)
+        imageView.image = imageToDisplay
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,5 +75,44 @@ class DetailViewConroller : UIViewController, UITextFieldDelegate {
     
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    @IBAction func tackPicture(_ sender: UIBarButtonItem) {
+        let imagePicker = UIImagePickerController()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+        } else {
+            imagePicker.sourceType = .photoLibrary
+        }
+        
+        imagePicker.allowsEditing = true
+        
+        imagePicker.delegate = self
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        
+        if imageView.image != nil {
+            let key = item.itemKey
+            imageStore.deleteImageForKey(key: key)
+        }
+        
+        imageStore.setImage(image: image, forKey: item.itemKey)
+        
+        imageView.image = image
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func deleteImage(_ sender: UIBarButtonItem) {
+        if imageView.image != nil {
+            let key = item.itemKey
+            imageStore.deleteImageForKey(key: key)
+            imageView.image = nil
+        }
     }
 }

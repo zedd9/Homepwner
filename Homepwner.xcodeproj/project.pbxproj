@@ -17,6 +17,8 @@
 		14AD2A4C25E7E0340055EC69 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2A4B25E7E0340055EC69 /* Item.swift */; };
 		14AD2A4F25E7E2880055EC69 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2A4E25E7E2880055EC69 /* ItemStore.swift */; };
 		14E300D125EC0C2700776DEF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E300D025EC0C2700776DEF /* DetailViewController.swift */; };
+		14E300D525ECC6BD00776DEF /* BorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E300D425ECC6BD00776DEF /* BorderTextField.swift */; };
+		14E300DA25ECD08F00776DEF /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E300D925ECD08F00776DEF /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		14AD2A4B25E7E0340055EC69 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		14AD2A4E25E7E2880055EC69 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		14E300D025EC0C2700776DEF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		14E300D425ECC6BD00776DEF /* BorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTextField.swift; sourceTree = "<group>"; };
+		14E300D925ECD08F00776DEF /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,15 +69,17 @@
 			isa = PBXGroup;
 			children = (
 				14AD2A3025E7DEEA0055EC69 /* AppDelegate.swift */,
+				14AD2A3225E7DEEA0055EC69 /* SceneDelegate.swift */,
 				14AD2A4725E7DF890055EC69 /* ItemsViewController.swift */,
 				14E300D025EC0C2700776DEF /* DetailViewController.swift */,
+				14E300D425ECC6BD00776DEF /* BorderTextField.swift */,
 				146376ED25EA95FD0047739E /* ItemCell.swift */,
 				14AD2A4B25E7E0340055EC69 /* Item.swift */,
 				14AD2A4E25E7E2880055EC69 /* ItemStore.swift */,
-				14AD2A3225E7DEEA0055EC69 /* SceneDelegate.swift */,
+				14E300D925ECD08F00776DEF /* ImageStore.swift */,
 				14AD2A3625E7DEEA0055EC69 /* Main.storyboard */,
-				14AD2A3925E7DEEA0055EC69 /* Assets.xcassets */,
 				14AD2A3B25E7DEEA0055EC69 /* LaunchScreen.storyboard */,
+				14AD2A3925E7DEEA0055EC69 /* Assets.xcassets */,
 				14AD2A3E25E7DEEA0055EC69 /* Info.plist */,
 			);
 			path = Homepwner;
@@ -154,8 +160,10 @@
 				146376EE25EA95FD0047739E /* ItemCell.swift in Sources */,
 				14AD2A3125E7DEEA0055EC69 /* AppDelegate.swift in Sources */,
 				14AD2A4F25E7E2880055EC69 /* ItemStore.swift in Sources */,
+				14E300DA25ECD08F00776DEF /* ImageStore.swift in Sources */,
 				14AD2A3325E7DEEA0055EC69 /* SceneDelegate.swift in Sources */,
 				14E300D125EC0C2700776DEF /* DetailViewController.swift in Sources */,
+				14E300D525ECC6BD00776DEF /* BorderTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
