@@ -87,6 +87,7 @@ class DetailViewConroller : UIViewController, UITextFieldDelegate, UINavigationC
         }
         
         imagePicker.allowsEditing = true
+        //imagePicker.cameraOverlayView 
         
         imagePicker.delegate = self
         
